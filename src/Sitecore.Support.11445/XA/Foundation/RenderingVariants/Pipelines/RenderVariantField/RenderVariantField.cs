@@ -11,7 +11,7 @@ namespace Sitecore.Support.XA.Foundation.RenderingVariants.Pipelines.RenderVaria
   {
     #region patch
     protected override bool IsEmptyFieldToRender(VariantField variantField, Item item) =>
-    (!variantField.RenderIfEmpty && string.IsNullOrWhiteSpace(item[variantField.FieldName]));
+    (!variantField.RenderIfEmpty && (string.IsNullOrWhiteSpace(item[variantField.FieldName]) || item.Versions.Count == 0));
     #endregion
   }
 }
